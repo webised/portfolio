@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ConnectionService} from './connection.service';
+import {ConnectionService} from '../services/connection.service';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import {Component, HostListener} from '@angular/core';
+import {HostListener} from '@angular/core';
 
 @Component({
   selector: 'app-contact',
@@ -9,22 +9,27 @@ import {Component, HostListener} from '@angular/core';
   styleUrls: ['./contact.component.sass']
 })
 
-export class ContactComponent {
+export class ContactComponent implements OnInit {
 
   contactForm: FormGroup;
-  disabledSubmitButton: boolean = true;
+  /*disabledSubmitButton: boolean = true;
   optionsSelect: Array<any>;
-
+ature
   @HostListener('input') oninput() {
 
     if (this.contactForm.valid) {
       this.disabledSubmitButton = false;
     }
+  }*/
+
+  constructor(private fb: FormBuilder, private connectionService: ConnectionService) {}
+
+  ngOnInit() {
+    this.initForm();
   }
 
-  constructor(private fb: FormBuilder, private connectionService: ConnectionService) {
-
-    this.contactForm = fb.group({
+  initForm() {
+    this.contactForm = this.fb.group({
       contactFormName: ['', Validators.required],
       contactFormEmail: ['', Validators.compose([Validators.required, Validators.email])],
       contactFormSubjects: ['', Validators.required],
