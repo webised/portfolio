@@ -1,14 +1,17 @@
-<div class="col-md-6 animate-box fadeInLeft animated" data-animate-effect="fadeInLeft">
-  <div class="project" style="background-image: url(images/work-1.jpg);">
-    <div class="desc">
-      <div class="con">
-        <h3><a href="work-single.html">Work 01</a></h3>
-        <span>Branding, Ilustration</span>
-        <p class="icon">
-          <span><a href="#"><i class="icon-share3"></i></a></span>
-          <span><a href="#"><i class="icon-eye"></i> 100</a></span>
-          <span><a href="#"><i class="icon-heart"></i> 49</a></span>
-        </p>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 col-md-pull-3">
+    <span class="heading-meta">Portfolio</span>
+    <h2 class="colorlib-heading animate-box fadeInLeft animated" data-animate-effect="fadeInLeft">My Work</h2>
+  </div>
+</div>
+<div class="row">
+  <div *ngFor="let work of works" class="col-md-6 animate-box fadeInLeft animated" data-animate-effect="fadeInLeft">
+    <div class="project" [ngStyle]="{'backgroundImage': 'url(/assets/img/' +  work.photo + ')'}">
+      <div class="desc">
+        <div class="con">
+          <h3><a href="work-single.html">{{ work.title}}</a></h3>
+          <span>Branding, Ilustration</span>
+        </div>
       </div>
     </div>
   </div>

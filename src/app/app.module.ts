@@ -8,8 +8,13 @@ import { WorksComponent } from './works/works.component';
 import { HomeComponent } from './home/home.component';
 import { ServiceComponent } from './service/service.component';
 import { ContactComponent } from './contact/contact.component';
-import {  HttpClientModule } from '@angular/common/http';
-import {WorksService} from './services/works.service';
+import { HttpClientModule } from '@angular/common/http';
+import { WorksService } from './services/works.service';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule  } from '@angular/fire/firestore';
+import { environement } from './environement';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { WorkformComponent } from './workform/workform.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +23,16 @@ import {WorksService} from './services/works.service';
     WorksComponent,
     HomeComponent,
     ServiceComponent,
-    ContactComponent
+    ContactComponent,
+    WorkformComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environement),
+    AngularFirestoreModule,
+    AngularFireDatabaseModule
   ],
   providers: [WorksService],
   bootstrap: [AppComponent]
