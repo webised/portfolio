@@ -63,6 +63,10 @@ ng-component {
   width: 100%;
   display: block;
   margin-bottom: 30px;
+  img {
+    display: block;
+    position: relative;
+  }
   .desc {
     position: absolute;
     top: 0;
@@ -79,6 +83,14 @@ ng-component {
       padding: 20px;
       display: block;
       position: relative;
+      height: 450px;
+      .icon {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        color: #ffffff;
+      }
     }
     h3 {
       font-size: 16px;
