@@ -9,36 +9,32 @@ import {HostListener} from '@angular/core';
   styleUrls: ['./contact.component.sass']
 })
 
-export class ContactComponent implements OnInit {
+export class ContactComponent {
 
-  contactForm: FormGroup;
-  /*disabledSubmitButton: boolean = true;
+
+  disabledSubmitButton: boolean = true;
   optionsSelect: Array<any>;
-ature
+
   @HostListener('input') oninput() {
 
     if (this.contactForm.valid) {
       this.disabledSubmitButton = false;
     }
-  }*/
+  }
+
 
   constructor(private fb: FormBuilder, private connectionService: ConnectionService) {}
 
-  ngOnInit() {
-    this.initForm();
-  }
+  contactForm = this.fb.group({
+    contactFormName: ['', Validators.required],
+    contactFormEmail: ['', Validators.compose([Validators.required, Validators.email])],
+    contactFormMessage: ['', Validators.required],
+    contactFormCopy: [''],
+  });
 
-  initForm() {
-    this.contactForm = this.fb.group({
-      contactFormName: ['', Validators.required],
-      contactFormEmail: ['', Validators.compose([Validators.required, Validators.email])],
-      contactFormSubjects: ['', Validators.required],
-      contactFormMessage: ['', Validators.required],
-      contactFormCopy: [''],
-    });
-  }
 
   onSubmit() {
+    console.log(this.contactForm.value);
     this.connectionService.sendMessage(this.contactForm.value).subscribe(() => {
       alert('Your message has been sent.');
       this.contactForm.reset();

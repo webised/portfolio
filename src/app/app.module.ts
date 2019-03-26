@@ -15,6 +15,7 @@ import { AngularFirestoreModule  } from '@angular/fire/firestore';
 import { environement } from './environement';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { WorkformComponent } from './workform/workform.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { WorkformComponent } from './workform/workform.component';
     HttpClientModule,
     AngularFireModule.initializeApp(environement),
     AngularFirestoreModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    ReactiveFormsModule
   ],
   providers: [WorksService],
   bootstrap: [AppComponent]
