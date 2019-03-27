@@ -1,0 +1,122 @@
+main {
+  padding-top: 4em;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 4em 3em 0 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  .nav-link {
+    font-weight: 500;
+    color: #333;
+    padding: 0.5rem 0;
+  }
+  h1 {
+    text-align: right;
+    margin-bottom: 2em;
+  }
+  ul {
+    text-align: right;
+  }
+}
+ng-component {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.about-img {
+  width: 75%;
+  height: 450px;
+}
+.about-img .about-img-2 {
+  width: 100% !important;
+  height: 390px;
+  position: absolute;
+  top: 80px;
+  right: -100px;
+  width: 80%;
+  -webkit-box-shadow: 0px 35px 78px -23px rgba(0, 0, 0, 0.33);
+  -moz-box-shadow: 0px 35px 78px -23px rgba(0, 0, 0, 0.33);
+  box-shadow: 0px 35px 78px -23px rgba(0, 0, 0, 0.33);
+}
+.about-img, .about-img-2 {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.about-img {
+  background-image: url('../img/img_bg_2.jpg');
+}
+.about-img-2 {
+  background-image: url('../img/img_bg_3.jpg');
+}
+.project {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 450px;
+  width: 100%;
+  display: block;
+  margin-bottom: 30px;
+  img {
+    display: block;
+    position: relative;
+  }
+  .desc {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    .con {
+      padding: 20px;
+      display: block;
+      position: relative;
+      height: 450px;
+      .icon {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        color: #ffffff;
+      }
+    }
+    h3 {
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+      -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+      transition: opacity 0.3s, -webkit-transform 0.3s;
+      -o-transition: transform 0.3s, opacity 0.3s;
+      transition: transform 0.3s, opacity 0.3s;
+      transition: transform 0.3s, opacity 0.3s, -webkit-transform 0.3s;
+      -webkit-transform: translate3d(0, -15px, 0);
+      transform: translate3d(0, -15px, 0);
+      margin-bottom: 15px;
+    }
+
+      a{
+        color: #ffffff;
+      }
+  }
+}
+.project:hover .desc h3 {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.project:hover .desc {
+  opacity: 1;
+}
