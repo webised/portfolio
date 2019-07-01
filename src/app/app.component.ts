@@ -11,4 +11,11 @@ export class AppComponent {
   constructor() {
     firebase.initializeApp(environement);
   }
+
+  navbarOpen = false;
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
+
 }

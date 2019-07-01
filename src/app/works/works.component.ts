@@ -27,11 +27,6 @@ export class WorksComponent implements OnInit {
           ...e.payload.doc.data()
         } as Work;
       });
-      console.log(this.works);
-      this.datas = {
-        title: this.works.title,
-        photo: this.works.photo
-      };
     });
 
   }

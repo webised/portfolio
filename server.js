@@ -6,13 +6,13 @@ const bodyParser = require('body-parser');
 
 const transporter = nodemailer.createTransport({
 
-    host: 'smtp.gmail.com',
-    provider: 'gmail',
-    port: 465,
+    host: 'in-v3.mailjet.com',
+    provider: 'mailjet',
+    port: 587,
     secure: true,
     auth: {
-        user: '', // Enter here email address from which you want to send emails
-        pass: '' // Enter here password for email account from which you want to send emails
+        user: '794f11f4c67ae24b792bc3575e26297b',
+        pass: '09b7348408d3234cbe64a1dbac9eb3b0'
     },
     tls: {
         rejectUnauthorized: false
