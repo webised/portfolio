@@ -25,7 +25,7 @@ export class ContactComponent {
 
   constructor(private fb: FormBuilder, private connectionService: ConnectionService) {}
 
-  contactForm = this.fb.group({
+    contactForm = this.fb.group({
     contactFormName: ['', Validators.required],
     contactFormEmail: ['', Validators.compose([Validators.required, Validators.email])],
     contactFormMessage: ['', Validators.required],
@@ -36,7 +36,7 @@ export class ContactComponent {
   onSubmit() {
     console.log(this.contactForm.value);
     this.connectionService.sendMessage(this.contactForm.value).subscribe(() => {
-      alert('Your message has been sent.');
+      alert('Votre message a été envoyé. Merci');
       this.contactForm.reset();
       this.disabledSubmitButton = true;
     }, error => {
