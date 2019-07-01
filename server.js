@@ -5,17 +5,18 @@ const port = 3000;
 const bodyParser = require('body-parser');
 
 const transporter = nodemailer.createTransport({
-
+  /*service: 'gmail',
+  auth: {
+    user: 'gbenounicolas@gmail.com ',
+    pass: 'C33pass!'
+  }*/
     host: 'in-v3.mailjet.com',
     provider: 'mailjet',
     port: 587,
-    secure: true,
+    secure: false,
     auth: {
         user: '794f11f4c67ae24b792bc3575e26297b',
         pass: '09b7348408d3234cbe64a1dbac9eb3b0'
-    },
-    tls: {
-        rejectUnauthorized: false
     }
 });
 
@@ -28,17 +29,22 @@ app.use(function (req, res, next) {
     next();
 });
 
+app.get('/yo', function(req, res) {
+  res.setHeader('Content-Type', 'text/plain');
+  res.send('Vous êtes à l\'accueil 222');
+});
+
 app.post('/send', function (req, res) {
 
     let senderName = req.body.contactFormName;
     let senderEmail = req.body.contactFormEmail;
     let messageSubject = req.body.contactFormSubjects;
-    let messageText = req.body.contactFormMessage;
-    let copyToSender = req.body.contactFormCopy;
+    let messageText = senderName+' '+req.body.contactFormMessage;
+    let copyToSender = '';
 
     let mailOptions = {
-        to: [' '], // Enter here the email address on which you want to send emails from your customers
-        from: senderName,
+        to: ['gbenounicolas@gmail.com'], // Enter here the email address on which you want to send emails from your customers
+        from: 'contact@webised.fr',
         subject: messageSubject,
         text: messageText,
         replyTo: senderEmail
@@ -83,7 +89,7 @@ app.post('/send', function (req, res) {
     transporter.sendMail(mailOptions, function (error, response) {
         if (error) {
             console.log(error);
-            res.end('error');
+            res.end('error transporter.sendmail');
         } else {
             console.log('Message sent: ', response);
             res.end('sent');
