@@ -29,11 +29,6 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get('/yo', function(req, res) {
-  res.setHeader('Content-Type', 'text/plain');
-  res.send('Vous êtes à l\'accueil 222');
-});
-
 app.post('/send', function (req, res) {
 
     let senderName = req.body.contactFormName;
