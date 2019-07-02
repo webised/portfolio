@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ConnectionService {
-  url: string = 'http://webised.fr:3000/send';
+  url: string = 'https://webised.fr:3000/send';
   constructor(private http: HttpClient) { }
 
   sendMessage(messageContent: any) {
